@@ -11,7 +11,7 @@ const Bookings = () => {
     const axiosSecure = useAxiosSecure();
 
 
-    // const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    // const url = `https://car-doctor-server-i2w9ixknm-shahidul-islams-projects.vercel.app/bookings?email=${user?.email}`;
     const url = `/bookings?email=${user?.email}`;
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const Bookings = () => {
         const proceed = confirm('Are you sure you want to delete ?')
         if (proceed) {
             console.log(proceed);
-            fetch(`http://localhost:5000/bookings/${id}`, {
+            fetch(`https://car-doctor-server-i2w9ixknm-shahidul-islams-projects.vercel.app/bookings/${id}`, {
                 method: "DELETE",
             })
                 .then(res => res.json())
@@ -51,7 +51,7 @@ const Bookings = () => {
     }
 
     const handleBookingConfirm = (id) => {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://car-doctor-server-i2w9ixknm-shahidul-islams-projects.vercel.app/bookings/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
