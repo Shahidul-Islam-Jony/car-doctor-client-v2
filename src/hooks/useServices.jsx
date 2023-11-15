@@ -4,13 +4,13 @@
 
 import { useEffect, useState } from "react";
 
-const useServices = () => {
+const useServices = (asc) => {
    const [services,setServices] = useState([]);
    useEffect(()=>{
-    fetch('https://car-doctor-server-i2w9ixknm-shahidul-islams-projects.vercel.app/services')
+    fetch(`http://localhost:5000/services?sort=${asc?'asc':'desc'}`)
     .then(res=>res.json())
     .then(data=>setServices(data));
-   },[])
+   },[asc])
 
    return services;
 };

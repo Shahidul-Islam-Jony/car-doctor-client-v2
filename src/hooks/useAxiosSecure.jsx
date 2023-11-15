@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'https://car-doctor-server-i2w9ixknm-shahidul-islams-projects.vercel.app',
+    baseURL: 'http://localhost:5000',
     withCredentials: true,
 })
 
@@ -17,7 +17,7 @@ const useAxiosSecure = () => {
             return res;
         },error=>{
             console.log('Error tracked in the interceptor ',error.response);
-            if(error.response.status === 401 || error.response.status == 403){
+            if(error.response.status === 401 || error.response.status === 403){
                 console.log('logout the user');
                 logOut()
                 .then(()=>{
@@ -26,7 +26,7 @@ const useAxiosSecure = () => {
                 .catch(error=>console.log(error))
             }
         })
-    },[])
+    },[logOut,navigate])
 
     return axiosSecure;
 };
